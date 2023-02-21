@@ -8,6 +8,8 @@ namespace yTools
 {
     public static class Integers
     {
+        public const double pi = Math.PI;
+
         static List<long> primeNumbers = new();
         static List<long> notPrimeNumbers = new();
 
@@ -54,5 +56,10 @@ namespace yTools
 
             return true;
         }
+
+        /// <summary>
+        /// Returns the length of the given array.
+        /// </summary>
+        public static int Count<T>(T[] array) => array.Length;
     }
 }
