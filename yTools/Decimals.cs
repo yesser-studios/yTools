@@ -69,5 +69,18 @@ namespace yTools
         /// </summary>
         public static double Power(double num1, double num2)
             => Math.Pow(num1, num2);
+
+        /// <summary>
+        /// Returns the square root of the given number.
+        /// </summary>
+        public static double SquareRoot(double number)
+            => Math.Sqrt(number);
+
+        /// <summary>
+        /// Returns the cube root of the given number.
+        /// </summary>
+
+        public static double CubeRoot(double number)
+            => Math.Cbrt(number);
     }
 }
