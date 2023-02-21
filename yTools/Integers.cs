@@ -41,7 +41,7 @@ namespace yTools
         /// <summary>
         /// The pi constant.
         /// </summary>
-        public const double pi = Math.PI;
+        public const double PI = Math.PI;
 
         static readonly List<long> primeNumbers = new();
         static readonly List<long> notPrimeNumbers = new();
