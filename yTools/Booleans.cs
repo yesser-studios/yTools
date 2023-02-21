@@ -19,10 +19,8 @@ namespace yTools
         public const bool FALSE = false;
 
         /// <summary>
-        /// Returns the negation of the input value.
+        /// Returns the opposite of the given boolean value.
         /// </summary>
-        /// <param name="input">The input value to be negated</param>
-        /// <returns>The negated value.</returns>
         public static bool Invert(bool input) => !input;
     }
 }
