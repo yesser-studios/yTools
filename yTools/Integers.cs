@@ -43,8 +43,8 @@ namespace yTools
         /// </summary>
         public const double pi = Math.PI;
 
-        static List<long> primeNumbers = new();
-        static List<long> notPrimeNumbers = new();
+        static readonly List<long> primeNumbers = new();
+        static readonly List<long> notPrimeNumbers = new();
 
         /// <summary>
         /// Returns true if the given number is prime.
