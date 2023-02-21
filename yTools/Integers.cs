@@ -8,6 +8,39 @@ namespace yTools
 {
     public static class Integers
     {
+        #region MaxValues
+        /// <summary>
+        /// The maximum number for 16-bit intengers.
+        /// </summary>
+        public const short maxShort = short.MaxValue;
+        /// <summary>
+        /// The maximum number for 32-bit intengers.
+        /// </summary>
+        public const int maxInt = int.MaxValue;
+        /// <summary>
+        /// The maximum number for 64-bit intengers.
+        /// </summary>
+        public const long maxLong = long.MaxValue;
+        #endregion
+
+        #region MinValues
+        /// <summary>
+        /// The minimum number for 16-bit intengers.
+        /// </summary>
+        public const short minShort = short.MinValue;
+        /// <summary>
+        /// The minimum number for 32-bit intengers.
+        /// </summary>
+        public const int minInt = int.MinValue;
+        /// <summary>
+        /// The minimum number for 64-bit intengers.
+        /// </summary>
+        public const long minLong = long.MinValue;
+        #endregion
+
+        /// <summary>
+        /// The pi constant.
+        /// </summary>
         public const double pi = Math.PI;
 
         static List<long> primeNumbers = new();

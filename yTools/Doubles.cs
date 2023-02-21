@@ -4,6 +4,36 @@ namespace yTools
 {
     public static class Doubles
     {
+        #region MaxValues
+        /// <summary>
+        /// The maximum number for 32-bit decimals.
+        /// </summary>
+        public const float maxFloat = float.MaxValue;
+        /// <summary>
+        /// The maximum number for 64-bit decimals.
+        /// </summary>
+        public const double maxDouble = double.MaxValue;
+        /// <summary>
+        /// The maximum number for 128-bit decimals.
+        /// </summary>
+        public const decimal maxDecimal = decimal.MaxValue;
+        #endregion
+
+        #region MinValues
+        /// <summary>
+        /// The minimum number for 32-bit decimals.
+        /// </summary>
+        public const float minFloat = float.MinValue;
+        /// <summary>
+        /// The minimum number for 64-bit decimals.
+        /// </summary>
+        public const double minDouble = double.MinValue;
+        /// <summary>
+        /// The minimum number for 128-bit decimals.
+        /// </summary>
+        public const decimal minDecimal = decimal.MinValue;
+        #endregion
+
         /// <summary>
         /// Returns the average of the given number array.
         /// </summary>
