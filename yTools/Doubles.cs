@@ -94,6 +94,7 @@ namespace yTools
             return min;
         }
 
+        #region Arithmetic
         /// <summary>
         /// Returns num1 to the power of num2 (num1^num2).
         /// </summary>
@@ -112,5 +113,31 @@ namespace yTools
 
         public static double CubeRoot(double number)
             => Math.Cbrt(number);
+
+        /// <summary>
+        /// Returns num1 + num2.
+        /// </summary>
+        public static double Add(double num1, double num2) => num1 + num2;
+
+        /// <summary>
+        /// Returns num1 - num2.
+        /// </summary>
+        public static double Substract(double num1, double num2) => num1 - num2;
+
+        /// <summary>
+        /// Returns num1 × num2.
+        /// </summary>
+        public static double Multiply(double num1, double num2) => num1 * num2;
+
+        /// <summary>
+        /// Returns num1 ÷ num2.
+        /// </summary>
+        public static double Divide(double num1, double num2) => num1 / num2;
+
+        /// <summary>
+        /// Returns the remainder after the division of num1 ÷ num2.
+        /// </summary>
+        public static double Remainder(double num1, double num2) => num1 % num2;
+        #endregion
     }
 }
