@@ -4,6 +4,20 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>yTools</PackageId>
+    <Title>yTools</Title>
+    <Version>1.0.0</Version>
+    <Authors>yesseruser</Authors>
+    <Company>Yesser Studios</Company>
+    <Product>yTools</Product>
+    <Description>yTools - the best library for getting simple values.</Description>
+    <Copyright>MIT License</Copyright>
+    <RepositoryUrl>https://github.com/yesseruser/yTools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Tools, yTools, Untensils</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
 </Project>
