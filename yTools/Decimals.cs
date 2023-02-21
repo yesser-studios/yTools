@@ -63,5 +63,11 @@ namespace yTools
             }
             return min;
         }
+
+        /// <summary>
+        /// Returns num1 to the power of num2 (num1^num2).
+        /// </summary>
+        public static double Power(double num1, double num2)
+            => Math.Pow(num1, num2);
     }
 }
