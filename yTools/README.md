@@ -16,6 +16,10 @@ You can browse IntelliCode suggestions to find different methods in them.
 Here's a link to the GitHub repository: 
 https://github.com/Yesser-Studios/yTools
 
+You can contribute by forking the repository and submitting a pull request.
+
+To report bugs or submit ideas, you can submit an issue in the GitHub repository.
+
 Examples:
 
 Check, if the number is prime:
@@ -27,5 +31,11 @@ Console.WriteLine(yTools.Integers.IsPrime(25) ? "True" : "False");
 Get the maximum double number:
 ```c#
 Console.WriteLine(yTools.Doubles.maxDouble.ToString());
-// Output: 
+// Output: 1,7976931348623157E+308
+```
+
+Close the app:
+```c#
+yTools.General.CloseApp();
+// Closes the application.
 ```
