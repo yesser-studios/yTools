@@ -13,5 +13,5 @@ Methods have documentation comments and are categorized into multiple classes:
 
 You can browse IntelliCode suggestions to find different methods in them.
 
-Here's a link to the GitHub repository:
- https://github.com/Yesser-Studios/yTools
+Here's a link to the GitHub repository: 
+https://github.com/Yesser-Studios/yTools
