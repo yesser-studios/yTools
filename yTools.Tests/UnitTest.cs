@@ -27,6 +27,7 @@ namespace yTools.Tests
         [DataRow(4)]
         [DataRow(9)]
         [DataRow(371)]
+        [DataRow(492764639)]
         public void IsPrimeFalse(int number)
         {
             bool isPrime = Integers.IsPrime(number);
