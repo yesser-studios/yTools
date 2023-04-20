@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Nullable>enable</Nullable>
-    <PackageId>yTools</PackageId>
+    <PackageId>YesserStudios.yTools</PackageId>
     <Title>yTools</Title>
     <Version>0.0.1</Version>
     <Authors>yesseruser</Authors>
     <Company>Yesser Studios</Company>
     <Product>yTools</Product>
-    <Description>yTools - the best library for getting simple values.</Description>
+    <Description>yTools - the best library for doing and checking simple things.</Description>
     <Copyright>MIT License</Copyright>
     <RepositoryUrl>https://github.com/yesseruser/yTools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
