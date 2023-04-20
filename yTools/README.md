@@ -15,3 +15,17 @@ You can browse IntelliCode suggestions to find different methods in them.
 
 Here's a link to the GitHub repository: 
 https://github.com/Yesser-Studios/yTools
+
+Examples:
+
+Check, if the number is prime:
+```c#
+Console.WriteLine(yTools.Integers.IsPrime(25) ? "True" : "False");
+// Output: False
+```
+
+Get the maximum double number:
+```c#
+Console.WriteLine(yTools.Doubles.maxDouble.ToString());
+// Output: 
+```

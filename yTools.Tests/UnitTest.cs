@@ -1,5 +1,3 @@
-using yTools;
-
 namespace yTools.Tests
 {
     [TestClass]
