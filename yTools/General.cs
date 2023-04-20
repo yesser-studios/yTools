@@ -1,4 +1,6 @@
-﻿namespace yTools
+﻿using System;
+
+namespace yTools
 {
     public static class General
     {
