@@ -19,8 +19,4 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
-
-	<ItemGroup>
-		<None Include="docs\README.md" />
-	</ItemGroup>
 </Project>
