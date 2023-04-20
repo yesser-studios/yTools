@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace yTools
+﻿namespace yTools
 {
     public static class Vectors
     {
