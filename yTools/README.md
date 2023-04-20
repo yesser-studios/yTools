@@ -18,7 +18,7 @@ https://github.com/Yesser-Studios/yTools
 
 You can contribute by forking the repository and submitting a pull request.
 
-To report bugs or submit ideas, you can submit an issue in the GitHub repository.
+To report bugs or submit ideas, you can submit an issue in the GitHub repository. For bug reports, please specify your .NET version, OS and your output log.
 
 Examples:
 
