@@ -81,10 +81,11 @@ namespace yTools
         /// Converts the given string to uppercase.
         /// </summary>
         public static string Upper(string text) => text.ToUpper();
+        #endregion
+
         /// <summary>
         /// Returns true if the given string is equal to null or whitespace.
         /// </summary>
-        #endregion
         public static bool IsNullOrWhitespace(string text) => string.IsNullOrWhiteSpace(text);
     }
 }
