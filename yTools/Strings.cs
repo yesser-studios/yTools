@@ -87,5 +87,12 @@ namespace yTools
         /// Returns true if the given string is equal to null or whitespace.
         /// </summary>
         public static bool IsNullOrWhitespace(string text) => string.IsNullOrWhiteSpace(text);
+
+        /// <summary>
+        /// Converts the given IConvertible input to a string value. May return null.
+        /// </summary>
+        /// <param name="value">The value to convert. Its type must be a descendand of IConvertible.</param>
+        /// <returns>A string representation of the given input. May be null.</returns>
+        public static string? ToString(IConvertible value) => value.ToString();
     }
 }
