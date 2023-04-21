@@ -31,5 +31,16 @@ namespace yTools.Tests
             bool isPrime = Integers.IsPrime(number);
             Assert.IsFalse(isPrime);
         }
+
+        [TestMethod]
+        [DataRow(0)]
+        [DataRow(-526346.5)]
+        [DataRow(double.MaxValue)]
+        [DataRow(double.MinValue)]
+        public void ConvertToString(double value)
+        {
+            string? converted = Strings.ToString(value);
+            Assert.AreEqual(converted, value.ToString());
+        }
     }
 }
