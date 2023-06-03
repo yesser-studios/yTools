@@ -46,8 +46,8 @@ namespace yTools.Tests
         [TestMethod]
         public void CheckObjectsBinarySerialized()
         {
-            TestSerializationObject testObject1 = new TestSerializationObject("Hi!", 5, 465.5);
-            TestSerializationObject testObject2 = new TestSerializationObject("Good Morning.", -8485, -6498.948);
+            TestSerializationObject testObject1 = new("Hi!", 5, 465.5);
+            TestSerializationObject testObject2 = new("Good Morning.", -8485, -6498.948);
 
             BinarySerializer serializer = new();
 
@@ -72,8 +72,8 @@ namespace yTools.Tests
         [TestMethod]
         public void CheckObjectsJsonSerialized()
         {
-            TestSerializationObject testObject1 = new TestSerializationObject("Hi!", 5, 465.5);
-            TestSerializationObject testObject2 = new TestSerializationObject("Good Morning.", -8485, -6498.948);
+            TestSerializationObject testObject1 = new("Hi!", 5, 465.5);
+            TestSerializationObject testObject2 = new("Good Morning.", -8485, -6498.948);
 
             JsonSerializer serializer = new();
 
