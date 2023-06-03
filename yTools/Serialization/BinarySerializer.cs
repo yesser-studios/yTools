@@ -21,6 +21,9 @@ namespace yTools.Serialization
             defaultFolder = directory[0] == '\\'
                 ? Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + directory
                 : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\" + directory;
+
+            if (!Directory.Exists(defaultFolder))
+                Directory.CreateDirectory(defaultFolder);
         }
 
         /// <summary>
@@ -32,6 +35,9 @@ namespace yTools.Serialization
         public void SetSerializationDirectory(string directory)
         {
             defaultFolder = directory;
+
+            if (!Directory.Exists(defaultFolder))
+                Directory.CreateDirectory(defaultFolder);
         }
 
         #endregion
@@ -48,6 +54,11 @@ namespace yTools.Serialization
         /// <returns>True if serialization succeeded without exception.; false if an exception was raised.</returns>
         public bool Serialize<T>(string filepath, T obj, out Exception? exception, out Type? exceptionType)
         {
+            string? parentDir = Path.GetDirectoryName(filepath);
+
+            if (parentDir == null || !Directory.Exists(parentDir))
+                Directory.CreateDirectory(parentDir);
+
             exception = null;
             exceptionType = null;
 
