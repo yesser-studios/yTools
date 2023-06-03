@@ -53,14 +53,14 @@ namespace yTools.Tests
 
             serializer.SetSerializationDirectoryInLocalAppData(@"yTools\Tests\Serialization");
 
-            bool serialized = serializer.SerializeInDefault("testObject1", testObject1, out Exception? exception, out _);
+            bool serialized = serializer.SerializeInDefault("testObject1.bin", testObject1, out Exception? exception, out _);
             if (!serialized && exception != null) throw exception;
-            serialized = serializer.SerializeInDefault("testObject2", testObject2, out exception, out _);
+            serialized = serializer.SerializeInDefault("testObject2.bin", testObject2, out exception, out _);
             if (!serialized && exception != null) throw exception;
 
-            var deserialized1 = serializer.DeserializeFromDefault<TestSerializationObject>("testObject1", out exception, out _);
+            var deserialized1 = serializer.DeserializeFromDefault<TestSerializationObject>("testObject1.bin", out exception, out _);
             if (deserialized1 != null && exception != null) throw exception;
-            var deserialized2 = serializer.DeserializeFromDefault<TestSerializationObject>("testObject2", out exception, out _);
+            var deserialized2 = serializer.DeserializeFromDefault<TestSerializationObject>("testObject2.bin", out exception, out _);
             if (deserialized2 != null && exception != null) throw exception;
 
             if (deserialized1 == null) throw new ArgumentNullException(nameof(deserialized1) + "was null.");
