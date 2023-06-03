@@ -3,9 +3,6 @@ namespace yTools.Tests
     [TestClass]
     public class UnitTest
     {
-        TestSerializationObject testObject1 = new TestSerializationObject("Hi!", 5, 465.5);
-        TestSerializationObject testObject2 = new TestSerializationObject("Good Morning.", -8485, -6498.948);
-
         [TestMethod]
         [TestCategory("UnitTest")]
         [DataRow(2)]
@@ -47,8 +44,11 @@ namespace yTools.Tests
         }
 
         [TestMethod]
-        public void CheckObjectsBinarySerialized(TestSerializationObject obj)
+        public void CheckObjectsBinarySerialized()
         {
+            TestSerializationObject testObject1 = new TestSerializationObject("Hi!", 5, 465.5);
+            TestSerializationObject testObject2 = new TestSerializationObject("Good Morning.", -8485, -6498.948);
+
             BinarySerializer serializer = new();
 
             serializer.SetSerializationDirectoryInLocalAppData(@"yTools\Tests\Serialization");
