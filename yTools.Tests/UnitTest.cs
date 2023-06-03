@@ -3,6 +3,9 @@ namespace yTools.Tests
     [TestClass]
     public class UnitTest
     {
+        TestSerializationObject testObject1 = new TestSerializationObject("Hi!", 5, 465.5);
+        TestSerializationObject testObject2 = new TestSerializationObject("Good Morning.", -8485, -6498.948);
+
         [TestMethod]
         [TestCategory("UnitTest")]
         [DataRow(2)]
@@ -41,6 +44,29 @@ namespace yTools.Tests
         {
             string? converted = Strings.ToString(value);
             Assert.AreEqual(converted, value.ToString());
+        }
+
+        [TestMethod]
+        public void CheckObjectsBinarySerialized(TestSerializationObject obj)
+        {
+            BinarySerializer serializer = new();
+
+            serializer.SetSerializationDirectoryInLocalAppData(@"yTools\Tests\Serialization");
+
+            bool serialized = serializer.SerializeInDefault("testObject1", testObject1, out Exception? exception, out _);
+            if (!serialized && exception != null) throw exception;
+            serialized = serializer.SerializeInDefault("testObject2", testObject1, out exception, out _);
+            if (!serialized && exception != null) throw exception;
+
+            var deserialized1 = serializer.DeserializeFromDefault<TestSerializationObject>("testObject1", out exception, out _);
+            if (deserialized1 != null && exception != null) throw exception;
+            var deserialized2 = serializer.DeserializeFromDefault<TestSerializationObject>("testObject1", out exception, out _);
+            if (deserialized2 != null && exception != null) throw exception;
+
+            if (deserialized1 == null) throw new ArgumentNullException(nameof(deserialized1) + "was null.");
+            if (deserialized2 == null) throw new ArgumentNullException(nameof(deserialized2) + "was null.");
+
+            Assert.IsTrue(deserialized1.Equals(testObject1) && deserialized2.Equals(testObject2));
         }
     }
 }
