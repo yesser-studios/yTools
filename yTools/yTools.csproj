@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <PackageId>YesserStudios.yTools</PackageId>
     <Title>yTools</Title>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>yesseruser</Authors>
     <Company>Yesser Studios</Company>
     <Product>yTools</Product>
@@ -14,13 +14,14 @@
     <RepositoryUrl>https://github.com/yesseruser/yTools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Tools, yTools, Untensils</PackageTags>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added a method to convert an IConvertible type to string.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 </Project>
