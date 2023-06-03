@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/yesseruser/yTools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Tools, yTools, Untensils</PackageTags>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added a method to convert an IConvertible type to string.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -22,9 +22,6 @@
 
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 </Project>
