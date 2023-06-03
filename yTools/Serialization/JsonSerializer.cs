@@ -7,7 +7,7 @@ namespace yTools.Serialization
     {
         #region DefaultFolder
 
-        string defaultFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\.cached";
+        string defaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\.cached";
 
         /// <summary>
         /// Sets the default serialization directory to a nested directory in <c>AppData\Local</c>.<br/>
@@ -17,12 +17,12 @@ namespace yTools.Serialization
         /// <param name="directory">The directory inside AppData\Local to store serialized objects. Use '\' to nest directories.</param>
         public void SetSerializationDirectoryInLocalAppData(string directory)
         {
-            defaultFolder = directory[0] == '\\'
+            defaultDirectory = directory[0] == '\\'
                 ? Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + directory
                 : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\" + directory;
 
-            if (!Directory.Exists(defaultFolder))
-                Directory.CreateDirectory(defaultFolder);
+            if (!Directory.Exists(defaultDirectory))
+                Directory.CreateDirectory(defaultDirectory);
         }
 
         /// <summary>
@@ -33,10 +33,10 @@ namespace yTools.Serialization
         /// <param name="directory">The directory to store serialized objects in. Enter full path including drive.</param>
         public void SetSerializationDirectory(string directory)
         {
-            defaultFolder = directory;
+            defaultDirectory = directory;
 
-            if (!Directory.Exists(defaultFolder))
-                Directory.CreateDirectory(defaultFolder);
+            if (!Directory.Exists(defaultDirectory))
+                Directory.CreateDirectory(defaultDirectory);
         }
 
         #endregion
@@ -99,7 +99,7 @@ namespace yTools.Serialization
         /// <returns>True if serialization succeeded without exception.; false if an exception was raised.</returns>
         public bool SerializeInDefault<T>(string filename, T obj, out Exception? exception, out Type? exceptionType)
         {
-            return Serialize(obj, filename, defaultFolder, out exception, out exceptionType);
+            return Serialize(obj, filename, defaultDirectory, out exception, out exceptionType);
         }
 
         #endregion
@@ -158,7 +158,7 @@ namespace yTools.Serialization
         /// <returns>True if deserialization succeeded without exception; false if an exception was raised.</returns>
         public object? DeserializeFromDefault<T>(string filename, out Exception? exception, out Type? exceptionType)
         {
-            return Deserialize<T>(defaultFolder + @"\" + filename, out exception, out exceptionType);
+            return Deserialize<T>(defaultDirectory + @"\" + filename, out exception, out exceptionType);
         }
 
         #endregion

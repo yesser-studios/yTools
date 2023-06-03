@@ -35,15 +35,6 @@ namespace yTools.Tests
                 && testCacheObject.testVersion == testVersion;
         }
 
-        public override int GetHashCode()
-        {
-            // Implement a custom hash code calculation based on the values of the fields/properties
-            int hash = 17;
-            hash = (hash * 31) + testString.GetHashCode();
-            hash = (hash * 31) + testInt.GetHashCode();
-            hash = (hash * 31) + testDouble.GetHashCode();
-            hash = (hash * 31) + (testVersion != null ? testVersion.GetHashCode() : 0);
-            return hash;
-        }
+        public override int GetHashCode() => HashCode.Combine(testString, testInt, testDouble, testVersion);
     }
 }
