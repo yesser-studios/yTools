@@ -49,7 +49,7 @@ namespace yTools
         /// <summary>
         /// Joins an array of strings together into one string, without separating the characters.
         /// </summary>
-        public static string JoinStrings(string[] strings)
+        public static string JoinStrings(params string[] strings)
         {
             string output = "";
             foreach (string item in strings)
@@ -62,7 +62,7 @@ namespace yTools
         /// <summary>
         /// Joins an array of characters together into one string, without separating the characters.
         /// </summary>
-        public static string JoinChars(char[] chars)
+        public static string JoinChars(params char[] chars)
         {
             string output = "";
             foreach (char item in chars)
