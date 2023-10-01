@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <PackageId>YesserStudios.yTools</PackageId>
     <Title>yTools</Title>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <Authors>yesseruser</Authors>
     <Company>Yesser Studios</Company>
     <Product>yTools</Product>
@@ -14,7 +14,8 @@
     <RepositoryUrl>https://github.com/yesseruser/yTools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Tools, yTools, Untensils</PackageTags>
-    <PackageReleaseNotes>Added a method to convert an IConvertible type to string.</PackageReleaseNotes>
+    <PackageReleaseNotes>Merged on Github and added this message.
+0.2.0: Added serialization to JSON, XML and binary formats.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
