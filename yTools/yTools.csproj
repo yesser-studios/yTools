@@ -19,6 +19,7 @@
     <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<ReleaseVersion>0.2.2</ReleaseVersion>
   </PropertyGroup>
 
 	<ItemGroup>
