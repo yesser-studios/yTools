@@ -37,7 +37,7 @@ namespace yTools
         /// <summary>
         /// Returns the average of the given number array.
         /// </summary>
-        public static double Average(double[] nums)
+        public static double Average(params double[] nums)
         {
             double sum = Sum(nums);
             int count = Integers.Count(nums);
@@ -47,7 +47,7 @@ namespace yTools
         /// <summary>
         /// Returns the sum of the given number array.
         /// </summary>
-        public static double Sum(double[] nums)
+        public static double Sum(params double[] nums)
         {
             double sum = 0;
             foreach (double item in nums)
@@ -60,7 +60,7 @@ namespace yTools
         /// <summary>
         /// Returns the highest number of the given number array.
         /// </summary>
-        public static double Max(double[] nums)
+        public static double Max(params double[] nums)
         {
             double max = nums[0];
             for (int i = 0; i < Integers.Count(nums); i++)
@@ -78,7 +78,7 @@ namespace yTools
         /// <summary>
         /// Returns the lowest number of the given number array.
         /// </summary>
-        public static double Min(double[] nums)
+        public static double Min(params double[] nums)
         {
             double min = nums[0];
             for (int i = 0; i < Integers.Count(nums); i++)
