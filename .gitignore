@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /yTools/nuget.config
+
+# Some caches I think
+*.DS_Store
