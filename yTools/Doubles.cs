@@ -110,7 +110,6 @@ namespace yTools
         /// <summary>
         /// Returns the cube root of the given number.
         /// </summary>
-
         public static double CubeRoot(double number)
             => Math.Cbrt(number);
 
