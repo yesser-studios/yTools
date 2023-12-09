@@ -65,7 +65,7 @@ namespace yTools
             double max = nums[0];
             for (int i = 0; i < Integers.Count(nums); i++)
             {
-                foreach (int item in nums)
+                foreach (double item in nums)
                 {
                     if (max < item)
                     {
@@ -83,7 +83,7 @@ namespace yTools
             double min = nums[0];
             for (int i = 0; i < Integers.Count(nums); i++)
             {
-                foreach (int item in nums)
+                foreach (double item in nums)
                 {
                     if (min > item)
                     {
