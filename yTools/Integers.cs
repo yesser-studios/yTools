@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace yTools
 {
@@ -12,39 +9,39 @@ namespace yTools
         /// <summary>
         /// The maximum number for 16-bit intengers.
         /// </summary>
-        public const short maxShort = short.MaxValue;
+        public const short MaxShort = short.MaxValue;
         /// <summary>
         /// The maximum number for 32-bit intengers.
         /// </summary>
-        public const int maxInt = int.MaxValue;
+        public const int MaxInt = int.MaxValue;
         /// <summary>
         /// The maximum number for 64-bit intengers.
         /// </summary>
-        public const long maxLong = long.MaxValue;
+        public const long MaxLong = long.MaxValue;
         #endregion
 
         #region MinValues
         /// <summary>
         /// The minimum number for 16-bit intengers.
         /// </summary>
-        public const short minShort = short.MinValue;
+        public const short MinShort = short.MinValue;
         /// <summary>
         /// The minimum number for 32-bit intengers.
         /// </summary>
-        public const int minInt = int.MinValue;
+        public const int MinInt = int.MinValue;
         /// <summary>
         /// The minimum number for 64-bit intengers.
         /// </summary>
-        public const long minLong = long.MinValue;
+        public const long MinLong = long.MinValue;
         #endregion
 
         /// <summary>
         /// The pi constant.
         /// </summary>
-        public const double PI = Math.PI;
+        public const double Pi = Math.PI;
 
-        static readonly List<long> primeNumbers = new List<long>();
-        static readonly List<long> notPrimeNumbers = new List<long>();
+        private static readonly List<long> PrimeNumbers = new List<long>();
+        private static readonly List<long> NotPrimeNumbers = new List<long>();
 
         /// <summary>
         /// Returns true if the given number is prime.
@@ -56,19 +53,19 @@ namespace yTools
             if (number == 2) return true;
             if (number % 2 == 0) return false;
 
-            if (primeNumbers.Contains(number)) return true;
-            if (notPrimeNumbers.Contains(number)) return false;
+            if (PrimeNumbers.Contains(number)) return true;
+            if (NotPrimeNumbers.Contains(number)) return false;
 
             var boundary = (int)Math.Floor(Math.Sqrt(number));
 
             for (int i = 3; i <= boundary; i += 2)
                 if (number % i == 0)
                 {
-                    notPrimeNumbers.Add(number);
+                    NotPrimeNumbers.Add(number);
                     return false;
                 }
 
-            primeNumbers.Add(number);
+            PrimeNumbers.Add(number);
             return true;
         }
 

@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace yTools
+﻿namespace yTools
 {
     public static class Booleans
     {
         /// <summary>
         /// The true boolean value.
         /// </summary>
-        public const bool TRUE = true;
+        public const bool True = true;
 
         /// <summary>
         /// The false boolean value.
         /// </summary>
-        public const bool FALSE = false;
+        public const bool False = false;
 
         /// <summary>
         /// Returns the opposite of the given boolean value.
