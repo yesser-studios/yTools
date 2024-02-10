@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace yTools.ConsoleTryout
+namespace yTools.ConsoleApp
 {
     internal class Program
     {
