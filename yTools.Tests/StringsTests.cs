@@ -1,4 +1,6 @@
-﻿namespace yTools.Tests
+﻿using System.Globalization;
+
+namespace yTools.Tests
 {
 	[TestClass]
 	public class StringsTests
@@ -11,7 +13,7 @@
         public void ConvertToString(double value)
         {
             string? converted = Strings.ToString(value);
-            Assert.AreEqual(converted, value.ToString());
+            Assert.AreEqual(converted, value.ToString(CultureInfo.InvariantCulture));
         }
 
         [TestMethod]
