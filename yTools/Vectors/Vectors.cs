@@ -2,7 +2,8 @@
 {
     public struct Vector2
     {
-        public double X, Y;
+        public double X { get; set; }
+        public double Y { get; set; }
 
         public Vector2(double x, double y)
         {
@@ -20,7 +21,9 @@
 
     public struct Vector3
     {
-        public double X, Y, Z;
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
 
         public Vector3(double x, double y, double z)
         {
