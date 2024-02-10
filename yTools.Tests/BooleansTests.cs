@@ -1,7 +1,7 @@
 ﻿namespace yTools.Tests;
 
 [TestClass]
-public class BooleanTests
+public class BooleansTests
 {
     [TestMethod]
     [DataRow(true)]
