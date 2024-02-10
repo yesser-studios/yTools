@@ -39,6 +39,9 @@ namespace yTools
         /// The pi constant.
         /// </summary>
         public const double Pi = Math.PI;
+        
+        public static List<long> PrimeNumbersProp => PrimeNumbers;
+        public static List<long> NotPrimeNumbersProp => NotPrimeNumbers;
 
         private static readonly List<long> PrimeNumbers = new List<long>();
         private static readonly List<long> NotPrimeNumbers = new List<long>();
