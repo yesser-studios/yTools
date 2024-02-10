@@ -29,7 +29,7 @@
             this.Z = z;
         }
 
-        public override string ToString() => $"{X},{Y}";
+        public override string ToString() => $"{X},{Y},{Z}";
 
         public static explicit operator System.Numerics.Vector3(Vector3 vector3) =>
             new System.Numerics.Vector3((float)vector3.X, (float)vector3.Y, (float)vector3.Z);
