@@ -1,5 +1,4 @@
-﻿using System;
-namespace yTools.Tests
+﻿namespace yTools.Tests
 {
 	[TestClass]
 	public class StringsTests
@@ -72,6 +71,17 @@ namespace yTools.Tests
         public void Upper(string str, string expected)
         {
             Assert.AreEqual(expected, Strings.Upper(str));
+        }
+
+        [TestMethod]
+        [DataRow("Hello")]
+        public void IsNullOrWhitespace(string str)
+        {
+            var expected = string.IsNullOrWhiteSpace(str);
+
+            var actual = Strings.IsNullOrWhitespace(str);
+            
+            Assert.AreEqual(expected, actual);
         }
     }
 }
