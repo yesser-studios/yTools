@@ -17,7 +17,9 @@ namespace yTools.Tests
         public void IsPrimeTrue(int number)
         {
             bool isPrime = Integers.IsPrime(number);
+            bool isPrimeNoSave = Integers.IsPrimeWithoutSaving(number);
             Assert.IsTrue(isPrime);
+            Assert.IsTrue(isPrimeNoSave);
         }
 
         [TestMethod]
@@ -32,7 +34,27 @@ namespace yTools.Tests
         public void IsPrimeFalse(int number)
         {
             bool isPrime = Integers.IsPrime(number);
+            bool isPrimeNoSave = Integers.IsPrimeWithoutSaving(number);
             Assert.IsFalse(isPrime);
+            Assert.IsFalse(isPrimeNoSave);
+        }
+
+        [TestMethod]
+        [DataRow(11)]
+        public void IsPrimeTrueCache(int number)
+        {
+            bool isPrime = Integers.IsPrime(number);
+            Assert.IsTrue(isPrime);
+            Assert.IsTrue(Integers.PrimeNumbersProp.Contains(number));
+        }
+        
+        [TestMethod]
+        [DataRow(9)]
+        public void IsPrimeFalseCache(int number)
+        {
+            bool isPrime = Integers.IsPrime(number);
+            Assert.IsFalse(isPrime);
+            Assert.IsTrue(Integers.NotPrimeNumbersProp.Contains(number));
         }
 
         [TestMethod]

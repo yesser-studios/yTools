@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,6 @@ namespace yTools
         /// </summary>
         /// <param name="value">The value to convert. Its type must be a descendand of IConvertible.</param>
         /// <returns>A string representation of the given input. May be null.</returns>
-        public static string? ToString(IConvertible value) => value.ToString();
+        public static string? ToString(IConvertible value) => value.ToString(CultureInfo.InvariantCulture);
     }
 }
