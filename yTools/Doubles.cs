@@ -8,30 +8,30 @@ namespace yTools
         /// <summary>
         /// The maximum number for 32-bit decimals.
         /// </summary>
-        public const float maxFloat = float.MaxValue;
+        public const float MaxFloat = float.MaxValue;
         /// <summary>
         /// The maximum number for 64-bit decimals.
         /// </summary>
-        public const double maxDouble = double.MaxValue;
+        public const double MaxDouble = double.MaxValue;
         /// <summary>
         /// The maximum number for 128-bit decimals.
         /// </summary>
-        public const decimal maxDecimal = decimal.MaxValue;
+        public const decimal MaxDecimal = decimal.MaxValue;
         #endregion
 
         #region MinValues
         /// <summary>
         /// The minimum number for 32-bit decimals.
         /// </summary>
-        public const float minFloat = float.MinValue;
+        public const float MinFloat = float.MinValue;
         /// <summary>
         /// The minimum number for 64-bit decimals.
         /// </summary>
-        public const double minDouble = double.MinValue;
+        public const double MinDouble = double.MinValue;
         /// <summary>
         /// The minimum number for 128-bit decimals.
         /// </summary>
-        public const decimal minDecimal = decimal.MinValue;
+        public const decimal MinDecimal = decimal.MinValue;
         #endregion
 
         /// <summary>
