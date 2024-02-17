@@ -3,6 +3,18 @@
     [TestClass]
 	public class SerializationTests
 	{
+        [TestCleanup]
+        public void Cleanup()
+        {
+            const string testDirectory = @"yTools";
+
+            var fullDir = $"{Environment.GetFolderPath(
+                Environment.SpecialFolder.LocalApplicationData
+            )}\\{testDirectory}";
+            if (Directory.Exists(fullDir))
+                Directory.Delete(fullDir, true);
+        }
+        
         [TestMethod]
         public void CheckObjectsBinarySerialized()
         {
@@ -11,9 +23,15 @@
 
             BinarySerializer serializer = new();
 
-            serializer.SetSerializationDirectoryInLocalAppData(@"yTools\Tests\Serialization");
+            const string directory = @"yTools\Tests\Serialization";
+            serializer.SetSerializationDirectoryInLocalAppData(directory);
+            
+            Assert.IsTrue(Directory.Exists(
+                $"{Environment.GetFolderPath(
+                        Environment.SpecialFolder.LocalApplicationData
+                    )}\\{directory}"));
 
-            bool serialized = serializer.SerializeInDefault("testObject1.bin", testObject1, out Exception? exception, out _);
+            var serialized = serializer.SerializeInDefault("testObject1.bin", testObject1, out Exception? exception, out _);
             if (!serialized && exception != null) throw exception;
             serialized = serializer.SerializeInDefault("testObject2.bin", testObject2, out exception, out _);
             if (!serialized && exception != null) throw exception;
@@ -37,7 +55,13 @@
 
             JsonSerializer serializer = new();
 
-            serializer.SetSerializationDirectoryInLocalAppData(@"yTools\Tests\Serialization");
+            const string directory = @"yTools\Tests\Serialization";
+            serializer.SetSerializationDirectoryInLocalAppData(directory);
+            
+            Assert.IsTrue(Directory.Exists(
+                $"{Environment.GetFolderPath(
+                    Environment.SpecialFolder.LocalApplicationData
+                )}\\{directory}"));
 
             bool serialized = serializer.SerializeInDefault("testObject1.json", testObject1, out Exception? exception, out _);
             if (!serialized && exception != null) throw exception;
@@ -63,7 +87,13 @@
 
             XmlSerializer serializer = new();
 
-            serializer.SetSerializationDirectoryInLocalAppData(@"yTools\Tests\Serialization");
+            const string directory = @"yTools\Tests\Serialization";
+            serializer.SetSerializationDirectoryInLocalAppData(directory);
+            
+            Assert.IsTrue(Directory.Exists(
+                $"{Environment.GetFolderPath(
+                    Environment.SpecialFolder.LocalApplicationData
+                )}\\{directory}"));
 
             bool serialized = serializer.SerializeInDefault("testObject1.xml", testObject1, out Exception? exception, out _);
             if (!serialized && exception != null) throw exception;
