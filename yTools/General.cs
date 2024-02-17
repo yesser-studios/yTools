@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace yTools
 {
@@ -8,6 +9,11 @@ namespace yTools
         /// Returns the given input of any type.
         /// </summary>
         public static T GetInput<T>(T input) => input;
+
+        /// <summary>
+        /// The path separator for your current platform.
+        /// </summary>
+        public static readonly char PathSeparator = Path.DirectorySeparatorChar;
 
         /// <summary>
         /// Closes your app with an exit code. The default exit code is 0.
