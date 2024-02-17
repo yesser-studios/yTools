@@ -158,7 +158,7 @@
             var jsonSerializer = new JsonSerializer();
             var xmlSerializer = new XmlSerializer();
             var binSerializer = new BinarySerializer();
-            var path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}{_sep}yTools\*:\whatever.ser"; // Invalid path
+            var path = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}{_sep}yTools{_sep}\0{_sep}whatever.ser"; // Invalid path
 
             var jsonSerialized = jsonSerializer.Serialize(
                 path, testObj, out var ex, out _);
