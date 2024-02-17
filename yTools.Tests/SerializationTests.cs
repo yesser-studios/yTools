@@ -3,7 +3,7 @@
     [TestClass]
 	public class SerializationTests
     {
-        private readonly char _sep = Path.DirectorySeparatorChar;
+        private readonly char _sep = General.PathSeparator;
         
         [TestCleanup]
         public void Cleanup()
@@ -20,6 +20,8 @@
         [TestMethod]
         public void CheckObjectsBinarySerialized()
         {
+            Console.WriteLine(_sep);
+            
             TestSerializationObject testObject1 = new("Hi!", 5, 465.5);
             TestSerializationObject testObject2 = new("Good Morning.", -8485, -6498.948);
 
