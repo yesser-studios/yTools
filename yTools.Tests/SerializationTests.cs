@@ -110,5 +110,69 @@
 
             Assert.IsTrue(deserialized1.Equals(testObject1) && deserialized2.Equals(testObject2));
         }
+
+        [TestMethod]
+        public void CheckSerializationDirCreated()
+        {
+            var baseDir = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\yTools";
+            var testObj = new TestSerializationObject("FooBar", 0, 0.5);
+
+            var jsonSerializer = new JsonSerializer();
+            var xmlSerializer = new XmlSerializer();
+            var binSerializer = new BinarySerializer();
+
+            jsonSerializer.Serialize(testObj, "json.json", $@"{baseDir}\json", out _, out _);
+            Assert.IsTrue(Directory.Exists($@"{baseDir}\json"));
+            
+            xmlSerializer.Serialize(testObj, "xml.xml", $@"{baseDir}\xml", out _, out _);
+            Assert.IsTrue(Directory.Exists($@"{baseDir}\xml"));
+            
+            binSerializer.Serialize(testObj, "bin.bin", $@"{baseDir}\bin", out _, out _);
+            Assert.IsTrue(Directory.Exists($@"{baseDir}\bin"));
+        }
+
+        [TestMethod]
+        public void CheckDeserializeException()
+        {
+            var jsonSerializer = new JsonSerializer();
+            var xmlSerializer = new XmlSerializer();
+            var binSerializer = new BinarySerializer();
+
+            jsonSerializer.Deserialize<TestSerializationObject>("hello", @"C:\whatever", out var jsonEx, out _);
+            xmlSerializer.Deserialize<TestSerializationObject>("hello", @"C:\whatever", out var xmlEx, out _);
+            binSerializer.Deserialize<TestSerializationObject>("hello", @"C:\whatever", out var binEx, out _);
+
+            Assert.IsNotNull(jsonEx);
+            Assert.IsNotNull(xmlEx);
+            Assert.IsNotNull(binEx);
+        }
+
+        [TestMethod]
+        public void CheckSerializationException()
+        {
+            TestSerializationObject testObj = new("69", 48, 5.2);
+            var jsonSerializer = new JsonSerializer();
+            var xmlSerializer = new XmlSerializer();
+            var binSerializer = new BinarySerializer();
+            var path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\yTools\*:\whatever.ser"; // Invalid path
+
+            var jsonSerialized = jsonSerializer.Serialize(
+                path, testObj, out var ex, out _);
+            Assert.IsFalse(jsonSerialized);
+            Assert.IsNotNull(ex);
+            Console.WriteLine($"Type of Json exception: {ex.GetType()}");
+
+            var xmlSerialized = xmlSerializer.Serialize(
+                path, testObj, out ex, out _);
+            Assert.IsFalse(xmlSerialized);
+            Assert.IsNotNull(ex);
+            Console.WriteLine($"Type of XML exception: {ex.GetType()}");
+
+            var binSerialized = binSerializer.Serialize(
+                path, testObj, out ex, out _);
+            Assert.IsFalse(binSerialized);
+            Assert.IsNotNull(ex);
+            Console.WriteLine($"Type of binary exception: {ex.GetType()}");
+        }
     }
 }
