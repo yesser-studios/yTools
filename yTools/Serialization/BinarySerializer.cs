@@ -53,14 +53,14 @@ namespace yTools.Serialization
         {
             string? parentDir = Path.GetDirectoryName(filepath);
 
-            if (parentDir == null || !Directory.Exists(parentDir))
-                Directory.CreateDirectory(parentDir);
-
             exception = null;
             exceptionType = null;
 
             try
             {
+                if (parentDir == null || !Directory.Exists(parentDir))
+                    Directory.CreateDirectory(parentDir);
+                
                 using var stream = new FileStream(filepath, FileMode.Create);
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(stream, obj);

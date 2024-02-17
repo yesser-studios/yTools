@@ -51,15 +51,15 @@ namespace yTools.Serialization
         public bool Serialize<T>(string filepath, T obj, out Exception? exception, out Type? exceptionType)
         {
             string? parentDir = Path.GetDirectoryName(filepath);
-
-            if (parentDir == null || !Directory.Exists(parentDir))
-                Directory.CreateDirectory(parentDir);
-
+            
             exception = null;
             exceptionType = null;
 
             try
             {
+                if (parentDir == null || !Directory.Exists(parentDir))
+                    Directory.CreateDirectory(parentDir);
+                
                 using var writer = new StreamWriter(new FileStream(filepath, FileMode.Create));
                 var serializer = new Newtonsoft.Json.JsonSerializer();
                 serializer.Serialize(writer, obj);
