@@ -7,7 +7,8 @@ namespace yTools.Serialization
     {
         #region DefaultFolder
 
-        string defaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\.cached";
+        string defaultDirectory =
+            $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}{General.PathSeparator}.cached";
 
         /// <summary>
         /// Sets the default serialization directory to a nested directory in <c>AppData\Local</c>.<br/>
@@ -17,9 +18,9 @@ namespace yTools.Serialization
         /// <param name="directory">The directory inside AppData\Local to store serialized objects. Use '\' to nest directories.</param>
         public void SetSerializationDirectoryInLocalAppData(string directory)
         {
-            SetSerializationDirectory(directory[0] == '\\'
+            SetSerializationDirectory(directory[0] == '\\' || directory[0] == '/'
                 ? Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + directory
-                : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\" + directory);
+                : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + General.PathSeparator + directory);
         }
 
         /// <summary>
@@ -51,15 +52,15 @@ namespace yTools.Serialization
         public bool Serialize<T>(string filepath, T obj, out Exception? exception, out Type? exceptionType)
         {
             string? parentDir = Path.GetDirectoryName(filepath);
-
-            if (parentDir == null || !Directory.Exists(parentDir))
-                Directory.CreateDirectory(parentDir);
-
+            
             exception = null;
             exceptionType = null;
 
             try
             {
+                if (parentDir == null || !Directory.Exists(parentDir))
+                    Directory.CreateDirectory(parentDir);
+                
                 using var writer = new StreamWriter(new FileStream(filepath, FileMode.Create));
                 var serializer = new Newtonsoft.Json.JsonSerializer();
                 serializer.Serialize(writer, obj);
@@ -84,7 +85,7 @@ namespace yTools.Serialization
         /// <returns>True if serialization succeeded without exception.; false if an exception was raised.</returns>
         public bool Serialize<T>(T obj, string filename, string directory, out Exception? exception, out Type? exceptionType)
         {
-            return Serialize(directory + @"\" + filename, obj, out exception, out exceptionType);
+            return Serialize(directory + General.PathSeparator + filename, obj, out exception, out exceptionType);
         }
 
         /// <summary>
@@ -142,7 +143,7 @@ namespace yTools.Serialization
         /// <returns>True if deserialization succeeded without exception; false if an exception was raised.</returns>
         public object? Deserialize<T>(string filename, string directory, out Exception? exception, out Type? exceptionType)
         {
-            return Deserialize<T>(directory + @"\" + filename, out exception, out exceptionType);
+            return Deserialize<T>(directory + General.PathSeparator + filename, out exception, out exceptionType);
         }
 
         /// <summary>
@@ -155,7 +156,7 @@ namespace yTools.Serialization
         /// <returns>True if deserialization succeeded without exception; false if an exception was raised.</returns>
         public object? DeserializeFromDefault<T>(string filename, out Exception? exception, out Type? exceptionType)
         {
-            return Deserialize<T>(defaultDirectory + @"\" + filename, out exception, out exceptionType);
+            return Deserialize<T>(defaultDirectory + General.PathSeparator + filename, out exception, out exceptionType);
         }
 
         #endregion
