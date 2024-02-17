@@ -1,5 +1,4 @@
-﻿using System;
-namespace yTools.Tests
+﻿namespace yTools.Tests
 {
     [TestClass]
 	public class SerializationTests
