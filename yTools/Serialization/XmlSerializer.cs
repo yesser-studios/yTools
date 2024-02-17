@@ -52,14 +52,14 @@ namespace yTools.Serialization
         {
             string? parentDir = Path.GetDirectoryName(filepath);
 
-            if (parentDir == null || !Directory.Exists(parentDir))
-                Directory.CreateDirectory(parentDir);
-
             exception = null;
             exceptionType = null;
 
             try
             {
+                if (parentDir == null || !Directory.Exists(parentDir))
+                    Directory.CreateDirectory(parentDir);
+                
                 using var stream = new FileStream(filepath, FileMode.Create);
                 var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
                 serializer.Serialize(stream, obj);
