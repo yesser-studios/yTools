@@ -17,12 +17,9 @@ namespace yTools.Serialization
         /// <param name="directory">The directory inside AppData\Local to store serialized objects. Use '\' to nest directories.</param>
         public void SetSerializationDirectoryInLocalAppData(string directory)
         {
-            defaultDirectory = directory[0] == '\\'
+            SetSerializationDirectory(directory[0] == '\\'
                 ? Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + directory
-                : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\" + directory;
-
-            if (!Directory.Exists(defaultDirectory))
-                Directory.CreateDirectory(defaultDirectory);
+                : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\" + directory);
         }
 
         /// <summary>
