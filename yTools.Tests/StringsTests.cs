@@ -85,5 +85,17 @@ namespace yTools.Tests
             
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Writes()
+        {
+            var str = "Hello from Strings.Write test!";
+            var color = ConsoleColor.Green;
+            
+            Strings.Write(str);
+            Strings.WriteColored(str, color);
+            Strings.WriteWithoutEndLine(str);
+            Strings.WriteColoredWithoutEndLine(str, color);
+        }
     }
 }
