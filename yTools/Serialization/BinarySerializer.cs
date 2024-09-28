@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace yTools.Serialization
 {
+    [Obsolete]
     public class BinarySerializer
     {
         #region DefaultFolder
