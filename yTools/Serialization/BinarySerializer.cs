@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace yTools.Serialization
 {
+    [Obsolete("Binary serialization is not trustworthy. Use JsonSerializer or XmlSerializer instead.")]
     public class BinarySerializer
     {
         #region DefaultFolder
