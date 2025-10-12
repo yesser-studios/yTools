@@ -4,17 +4,12 @@
 	public class SerializationTests
     {
         private readonly char _sep = General.PathSeparator;
-        
+
         [TestCleanup]
         public void Cleanup()
         {
-            const string testDirectory = "yTools";
-
-            var fullDir = $"{Environment.GetFolderPath(
-                Environment.SpecialFolder.LocalApplicationData
-            )}{_sep}{testDirectory}";
-            if (Directory.Exists(fullDir))
-                Directory.Delete(fullDir, true);
+            if (Directory.Exists("./test-serialization"))
+                Directory.Delete("./test-serialization", true);
         }
 
         [TestMethod]
