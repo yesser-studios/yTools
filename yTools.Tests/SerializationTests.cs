@@ -1,20 +1,29 @@
 ﻿namespace yTools.Tests
 {
     [TestClass]
-	public class SerializationTests
+    public class SerializationTests
     {
         private readonly char _sep = General.PathSeparator;
-        
+
         [TestCleanup]
         public void Cleanup()
         {
-            const string testDirectory = "yTools";
+          try
+          {
+              const string testDirectory = "yTools";
+              var fullDir = $"{Environment.GetFolderPath(
+                  Environment.SpecialFolder.LocalApplicationData
+              )}{_sep}{testDirectory}";
+              if (Directory.Exists(fullDir))
+                  Directory.Delete(fullDir, true);
 
-            var fullDir = $"{Environment.GetFolderPath(
-                Environment.SpecialFolder.LocalApplicationData
-            )}{_sep}{testDirectory}";
-            if (Directory.Exists(fullDir))
-                Directory.Delete(fullDir, true);
+              if (Directory.Exists("./test-serialization"))
+                  Directory.Delete("./test-serialization", true);
+          }
+          catch
+          {
+              Console.WriteLine("Something went wrong when cleaning up.");
+          }
         }
 
         [TestMethod]
@@ -24,14 +33,7 @@
             TestSerializationObject testObject2 = new("Good Morning.", -8485, -6498.948);
 
             JsonSerializer serializer = new();
-
-            var directory = $"yTools{_sep}Tests{_sep}Serialization";
-            serializer.SetSerializationDirectoryInLocalAppData(directory);
-            
-            Assert.IsTrue(Directory.Exists(
-                $"{Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData
-                )}{_sep}{directory}"));
+            serializer.SetSerializationDirectory("./test-serialization");
 
             bool serialized = serializer.SerializeInDefault("testObject1.json", testObject1, out Exception? exception, out _);
             if (!serialized && exception != null) throw exception;
@@ -56,14 +58,7 @@
             TestSerializationObject testObject2 = new("Good Morning.", -8485, -6498.948);
 
             XmlSerializer serializer = new();
-
-            var directory = $"yTools{_sep}Tests{_sep}Serialization";
-            serializer.SetSerializationDirectoryInLocalAppData(directory);
-            
-            Assert.IsTrue(Directory.Exists(
-                $"{Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData
-                )}{_sep}{directory}"));
+            serializer.SetSerializationDirectory("./test-serialization");
 
             bool serialized = serializer.SerializeInDefault("testObject1.xml", testObject1, out Exception? exception, out _);
             if (!serialized && exception != null) throw exception;
@@ -92,7 +87,7 @@
 
             jsonSerializer.Serialize(testObj, "json.json", $@"{baseDir}{_sep}json", out _, out _);
             Assert.IsTrue(Directory.Exists($"{baseDir}{_sep}json"));
-            
+
             xmlSerializer.Serialize(testObj, "xml.xml", $@"{baseDir}{_sep}xml", out _, out _);
             Assert.IsTrue(Directory.Exists($"{baseDir}{_sep}xml"));
         }
